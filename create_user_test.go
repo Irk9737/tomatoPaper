@@ -49,7 +49,7 @@ func TestHelloWorld(t *testing.T) {
 	server.Start(":8080")
 }
 
-func TestCreateSysAdmin(t *testing.T) {
+func TestCreateAdmin(t *testing.T) {
 	// 设置测试数据库连接
 	err := database.SetupDBLink()
 	if err != nil {
@@ -57,6 +57,7 @@ func TestCreateSysAdmin(t *testing.T) {
 	}
 
 	server := web.NewHTTPServer()
+	//server.Post("/demo/add", controller.CreateDemo)
 	server.Post("/admin/add", controller.CreateAdmin)
 	server.Start(":8080")
 }

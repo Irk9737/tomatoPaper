@@ -21,7 +21,7 @@ func (a AdminServiceImpl) CreateAdmin(c *web.Context, dto entity.AddAdminDto) {
 		result.Failed(c, int(result.ApiCode.MissingNewAdminParameter), result.ApiCode.GetMessage(result.ApiCode.MissingNewAdminParameter))
 		return
 	}
-	bool := dao.CreateSysAdmin(dto)
+	bool := dao.CreateAdmin(dto)
 	if !bool {
 		result.Failed(c, int(result.ApiCode.USERNAMEALREADYEXISTS), result.ApiCode.GetMessage(result.ApiCode.USERNAMEALREADYEXISTS))
 		return
